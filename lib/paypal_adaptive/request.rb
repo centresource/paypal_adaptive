@@ -91,6 +91,7 @@ module PaypalAdaptive
       http.verify_mode = OpenSSL::SSL::VERIFY_PEER
       http.ca_path = @@ssl_cert_path unless @@ssl_cert_path.nil?
       http.ca_file = @@ssl_cert_file unless @@ssl_cert_file.nil?
+      http.set_debug_output $stdout
 
       resp, response_data = http.post(path, api_request_data, @@headers)
 
