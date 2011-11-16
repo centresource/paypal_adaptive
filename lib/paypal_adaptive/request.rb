@@ -92,6 +92,8 @@ module PaypalAdaptive
       http.ca_path = @@ssl_cert_path unless @@ssl_cert_path.nil?
       http.ca_file = @@ssl_cert_file unless @@ssl_cert_file.nil?
       http.set_debug_output $stdout
+      puts "BODY:"
+      puts api_request_data
 
       resp, response_data = http.post(path, api_request_data, @@headers)
 
